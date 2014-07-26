@@ -2,4 +2,6 @@
 <module>
   <inherits name='com.ait.toolkit.core.Core'/>
   <inherits name='com.ait.toolkit.data.Data'/>
+  <inherits name='com.ait.toolkit.application.Application'/>
+  <inherits name='com.ait.toolkit.application.Formfactor'/>
 </module>
