@@ -50,12 +50,10 @@ import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayString;
 
 /**
- * The Store class encapsulates a client side cache of DataModel objects. Stores
- * load data via a ProxyConfig, and also provide functions for sorting,
- * filtering and querying the model instances contained within it.
+ * The Store class encapsulates a client side cache of DataModel objects. Stores load data via a ProxyConfig, and also provide functions for sorting, filtering and querying the
+ * model instances contained within it.
  * 
- * @See <a href="http://docs.sencha.com/ext4/2-0/#!/api/Ext.data.Store">Ext.data
- *      .Store</a>
+ * @See <a href="http://docs.sencha.com/ext4/2-0/#!/api/Ext.data.Store">Ext.data .Store</a>
  * 
  */
 public class Store extends JsObject {
@@ -78,9 +76,7 @@ public class Store extends JsObject {
 	}
 
 	/**
-	 * This constructor allows a Store to be created; it MUST contain at least
-	 * one element, since the Store's fields will be derived from the first
-	 * element in the Store.
+	 * This constructor allows a Store to be created; it MUST contain at least one element, since the Store's fields will be derived from the first element in the Store.
 	 * 
 	 * @param data
 	 */
@@ -113,8 +109,7 @@ public class Store extends JsObject {
 	}
 
 	/**
-	 * This constructor allows a Store to be created without elements. However,
-	 * the list of fields must be specified.
+	 * This constructor allows a Store to be created without elements. However, the list of fields must be specified.
 	 * 
 	 * @param data
 	 * @param fields
@@ -136,8 +131,7 @@ public class Store extends JsObject {
 		return f;
 	}
 
-	public Store(List<? extends BaseModel> data, ProxyConfig proxy,
-			String... fields) {
+	public Store(List<? extends BaseModel> data, ProxyConfig proxy, String... fields) {
 		assert fields.length != 0 : "Fields list cannot be empty.";
 		init(data, new HashSet<String>(Arrays.asList(fields)), proxy);
 	}
@@ -159,8 +153,7 @@ public class Store extends JsObject {
 	}
 
 	/**
-	 * Initializes this Store with the given BaseModel objects and the given
-	 * fields.
+	 * Initializes this Store with the given BaseModel objects and the given fields.
 	 * 
 	 * @param data
 	 * @param fields
@@ -180,8 +173,7 @@ public class Store extends JsObject {
 		create(modelName, JsoHelper.arrayConvert(storeData));
 	}
 
-	protected void init(List<? extends BaseModel> data, Set<String> fields,
-			ProxyConfig proxy) {
+	protected void init(List<? extends BaseModel> data, Set<String> fields, ProxyConfig proxy) {
 		modelRegistry++;
 		modelName = model + modelRegistry;
 		this.elements.addAll(data);
@@ -206,13 +198,10 @@ public class Store extends JsObject {
 	}-*/;
 
 	/**
-	 * Allows the Store to prefetch and cache in a page cache, pages of Records,
-	 * and to then satisfy loading requirements from this page cache.
+	 * Allows the Store to prefetch and cache in a page cache, pages of Records, and to then satisfy loading requirements from this page cache.
 	 * <p>
-	 * To use buffered Stores, initiate the process by loading the first page.
-	 * The number of rows rendered are determined automatically, and the range
-	 * of pages needed to keep the cache primed for scrolling is requested and
-	 * cached. Example:
+	 * To use buffered Stores, initiate the process by loading the first page. The number of rows rendered are determined automatically, and the range of pages needed to keep the
+	 * cache primed for scrolling is requested and cached. Example:
 	 * 
 	 * @param value
 	 */
@@ -221,9 +210,8 @@ public class Store extends JsObject {
 	}
 
 	/**
-	 * True to empty the store when loading another page via loadPage, nextPage
-	 * or previousPage. Setting to false keeps existing records, allowing large
-	 * data sets to be loaded one page at a time but rendered all together.
+	 * True to empty the store when loading another page via loadPage, nextPage or previousPage. Setting to false keeps existing records, allowing large data sets to be loaded one
+	 * page at a time but rendered all together.
 	 * 
 	 * @param value
 	 */
@@ -241,9 +229,8 @@ public class Store extends JsObject {
 	}
 
 	/**
-	 * The number of records considered to form a 'page'. This is used to power
-	 * the built-in paging using the nextPage and previousPage functions when
-	 * the grid is paged using a PagingScroller Defaults to 25.
+	 * The number of records considered to form a 'page'. This is used to power the built-in paging using the nextPage and previousPage functions when the grid is paged using a
+	 * PagingScroller Defaults to 25.
 	 */
 	public void setPageSize(int value) {
 		JsoHelper.setAttribute(jsObj, "pageSize", value);
@@ -254,17 +241,15 @@ public class Store extends JsObject {
 	}
 
 	/**
-	 * The number of records considered to form a 'page'. This is used to power
-	 * the built-in paging using the nextPage and previousPage functions when
-	 * the grid is paged using a PagingScroller Defaults to 25.
+	 * The number of records considered to form a 'page'. This is used to power the built-in paging using the nextPage and previousPage functions when the grid is paged using a
+	 * PagingScroller Defaults to 25.
 	 */
 	public void setPurgePageCount(int value) {
 		JsoHelper.setAttribute(jsObj, "purgePageCount", value);
 	}
 
 	/**
-	 * True to defer any filtering operation to the server. If false, filtering
-	 * is done locally on the client.
+	 * True to defer any filtering operation to the server. If false, filtering is done locally on the client.
 	 * <p>
 	 * Defaults to: false
 	 */
@@ -273,10 +258,8 @@ public class Store extends JsObject {
 	}
 
 	/**
-	 * true if the grouping should apply on the server side, false if it is
-	 * local only. If the grouping is local, it can be applied immediately to
-	 * the data. If it is remote, then it will simply act as a helper,
-	 * automatically sending the grouping information to the server.
+	 * true if the grouping should apply on the server side, false if it is local only. If the grouping is local, it can be applied immediately to the data. If it is remote, then
+	 * it will simply act as a helper, automatically sending the grouping information to the server.
 	 * <p>
 	 * Defaults to: false
 	 */
@@ -285,8 +268,7 @@ public class Store extends JsObject {
 	}
 
 	/**
-	 * True to defer any sorting operation to the server. If false, sorting is
-	 * done locally on the client.
+	 * True to defer any sorting operation to the server. If false, sorting is done locally on the client.
 	 * <p>
 	 * Defaults to: false
 	 */
@@ -295,8 +277,7 @@ public class Store extends JsObject {
 	}
 
 	/**
-	 * For local filtering only, causes sort to be called whenever filter is
-	 * called, causing the sorters to be reapplied after filtering.
+	 * For local filtering only, causes sort to be called whenever filter is called, causing the sorters to be reapplied after filtering.
 	 * <p>
 	 * Defaults to: true
 	 */
@@ -305,9 +286,7 @@ public class Store extends JsObject {
 	}
 
 	/**
-	 * If true, any sorters attached to this Store will be run after loading
-	 * data, before the datachanged event is fired. Defaults to true, igored if
-	 * remoteSort is true
+	 * If true, any sorters attached to this Store will be run after loading data, before the datachanged event is fired. Defaults to true, igored if remoteSort is true
 	 * <p>
 	 * Defaults to: true
 	 */
@@ -325,21 +304,17 @@ public class Store extends JsObject {
 	}
 
 	/**
-	 * Unique identifier for this store. If present, this Store will be
-	 * registered with the Ext.data.StoreManager, making it easy to reuse
-	 * elsewhere.
+	 * Unique identifier for this store. If present, this Store will be registered with the Ext.data.StoreManager, making it easy to reuse elsewhere.
 	 * <p>
-	 * Note that when store is instatiated by Controller, the storeId will be
-	 * overridden by the name of the store.
+	 * Note that when store is instatiated by Controller, the storeId will be overridden by the name of the store.
 	 */
 	public void setStoreId(String value) {
 		JsoHelper.setAttribute(jsObj, "storeId", value);
 	}
 
 	/**
-	 * When buffered, the number of extra records to keep cached on the trailing
-	 * side of scrolling buffer as scrolling proceeds. A larger number means
-	 * fewer replenishments from the server.
+	 * When buffered, the number of extra records to keep cached on the trailing side of scrolling buffer as scrolling proceeds. A larger number means fewer replenishments from the
+	 * server.
 	 * <p>
 	 * Defaults to: 25
 	 */
@@ -370,8 +345,7 @@ public class Store extends JsObject {
 	/**
 	 * Filters the loaded set of records by a given set of filters.
 	 * <p>
-	 * By default, the passed filter(s) are added to the collection of filters
-	 * being used to filter this Store.
+	 * By default, the passed filter(s) are added to the collection of filters being used to filter this Store.
 	 */
 	public native void filter(String property, String value) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
@@ -381,8 +355,7 @@ public class Store extends JsObject {
 	/**
 	 * Filters the loaded set of records by a given set of filters.
 	 * <p>
-	 * By default, the passed filter(s) are added to the collection of filters
-	 * being used to filter this Store.
+	 * By default, the passed filter(s) are added to the collection of filters being used to filter this Store.
 	 */
 	public native void filter() /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
@@ -392,8 +365,7 @@ public class Store extends JsObject {
 	/**
 	 * Filters the loaded set of records by a given set of filters.
 	 * <p>
-	 * By default, the passed filter(s) are added to the collection of filters
-	 * being used to filter this Store.
+	 * By default, the passed filter(s) are added to the collection of filters being used to filter this Store.
 	 */
 	public void filter(FilterConfig... filterConfigs) {
 		_filter(JsoHelper.arrayConvert(filterConfigs));
@@ -428,18 +400,16 @@ public class Store extends JsObject {
 	}-*/;
 
 	/**
-	 * Filters by a function. The specified function will be called for each
-	 * Record in this Store. If the function returns true the Record is
-	 * included, otherwise it is filtered out.
+	 * Filters by a function. The specified function will be called for each Record in this Store. If the function returns true the Record is included, otherwise it is filtered
+	 * out.
 	 * <p>
-	 * When store is filtered, most of the methods for accessing store data will
-	 * be working only within the set of filtered records. Two notable
-	 * exceptions are <code>queryBy</code> and <code>getById</code>.
+	 * When store is filtered, most of the methods for accessing store data will be working only within the set of filtered records. Two notable exceptions are <code>queryBy</code>
+	 * and <code>getById</code>.
 	 */
 	public native void filterBy(FilterFunction filterFunction) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso
-				.filter($entry(function(item) {
+				.filterBy($entry(function(item) {
 					var model = @com.ait.toolkit.data.client.BaseModel::new(Lcom/google/gwt/core/client/JavaScriptObject;)(item);
 					return filterFunction.@com.ait.toolkit.sencha.shared.client.util.FilterFunction::onFilter(Lcom/ait/toolkit/data/client/BaseModel;)(model);
 				}));
@@ -463,8 +433,7 @@ public class Store extends JsObject {
 	 * @param bypassFilter
 	 * @return
 	 */
-	public native JsArray<JavaScriptObject> collect(String dataIndex,
-			boolean allowNull, boolean bypassFilter) /*-{
+	public native JsArray<JavaScriptObject> collect(String dataIndex, boolean allowNull, boolean bypassFilter) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		return jso.collect(dataIndex, allowNull, bypassFilter);
 	}-*/;
@@ -513,8 +482,7 @@ public class Store extends JsObject {
 	}-*/;
 
 	/**
-	 * The default sort direction to use if one is not specified (defaults to
-	 * SortDirection.ASC)
+	 * The default sort direction to use if one is not specified (defaults to SortDirection.ASC)
 	 * 
 	 * @param sortDirection
 	 */
@@ -527,8 +495,7 @@ public class Store extends JsObject {
 	}
 
 	/**
-	 * The direction in which sorting should be applied when grouping. Defaults
-	 * to SortDirection.ASC - the other supported value is SortDirection.DESC
+	 * The direction in which sorting should be applied when grouping. Defaults to SortDirection.ASC - the other supported value is SortDirection.DESC
 	 * 
 	 * @param direction
 	 */
@@ -541,10 +508,8 @@ public class Store extends JsObject {
 	}
 
 	/**
-	 * The (optional) field by which to group data in the store. Internally,
-	 * grouping is very similar to sorting - the groupField and groupDir are
-	 * injected as the first sorter (see sort). Stores support a single level of
-	 * grouping, and groups can be fetched via the getGroups method.
+	 * The (optional) field by which to group data in the store. Internally, grouping is very similar to sorting - the groupField and groupDir are injected as the first sorter (see
+	 * sort). Stores support a single level of grouping, and groups can be fetched via the getGroups method.
 	 * 
 	 * @param value
 	 */
@@ -553,10 +518,8 @@ public class Store extends JsObject {
 	}
 
 	/**
-	 * The (optional) field by which to group data in the store. Internally,
-	 * grouping is very similar to sorting - the groupField and groupDir are
-	 * injected as the first sorter (see sort). Stores support a single level of
-	 * grouping, and groups can be fetched via the getGroups method.
+	 * The (optional) field by which to group data in the store. Internally, grouping is very similar to sorting - the groupField and groupDir are injected as the first sorter (see
+	 * sort). Stores support a single level of grouping, and groups can be fetched via the getGroups method.
 	 * 
 	 * @param value
 	 */
@@ -576,8 +539,7 @@ public class Store extends JsObject {
 	}-*/;
 
 	/**
-	 * Finds the index of the first matching BaseModel in this store by a
-	 * specific field value.
+	 * Finds the index of the first matching BaseModel in this store by a specific field value.
 	 * 
 	 * @param fieldName
 	 * @param value
@@ -590,8 +552,7 @@ public class Store extends JsObject {
 	}-*/;
 
 	/**
-	 * Inserts DataModel instances into the Store at the given index and fires
-	 * the add event
+	 * Inserts DataModel instances into the Store at the given index and fires the add event
 	 */
 	public void insert(int index, BaseModel record) {
 		this.elements.add(index, record);
@@ -604,16 +565,14 @@ public class Store extends JsObject {
 	}-*/;
 
 	/**
-	 * Inserts DataModel instances into the Store at the given index and fires
-	 * the add event
+	 * Inserts DataModel instances into the Store at the given index and fires the add event
 	 */
 	public void insert(int index, BaseModel... records) {
 		insert(index, Arrays.asList(records));
 	}
 
 	/**
-	 * Inserts DataModel instances into the Store at the given index and fires
-	 * the add event
+	 * Inserts DataModel instances into the Store at the given index and fires the add event
 	 */
 	public void insert(int index, List<BaseModel> records) {
 		this.elements.addAll(index, records);
@@ -627,14 +586,10 @@ public class Store extends JsObject {
 	}-*/;
 
 	/**
-	 * fieldName : String The name of the BaseModel field to test. value :
-	 * String/RegExp Either a string that the field value should begin with, or
-	 * a RegExp to test against the field. startIndex : Number (optional) The
-	 * index to start searching at anyMatch : Boolean (optional) True to match
-	 * any part of the string, not just the beginning caseSensitive : Boolean
-	 * (optional) True for case sensitive comparison exactMatch : Boolean
-	 * (optional) True to force exact match (^ and $ characters added to the
-	 * regex). Defaults to false.
+	 * fieldName : String The name of the BaseModel field to test. value : String/RegExp Either a string that the field value should begin with, or a RegExp to test against the
+	 * field. startIndex : Number (optional) The index to start searching at anyMatch : Boolean (optional) True to match any part of the string, not just the beginning
+	 * caseSensitive : Boolean (optional) True for case sensitive comparison exactMatch : Boolean (optional) True to force exact match (^ and $ characters added to the regex).
+	 * Defaults to false.
 	 * 
 	 * @param <T>
 	 * @param fieldName
@@ -645,9 +600,7 @@ public class Store extends JsObject {
 	 * @param exactMatch
 	 * @return
 	 */
-	public native <T extends BaseModel> T findBaseModel(String fieldName,
-			String value, int startIndex, boolean anyMatch,
-			boolean caseSensitive, boolean exactMatch) /*-{
+	public native <T extends BaseModel> T findBaseModel(String fieldName, String value, int startIndex, boolean anyMatch, boolean caseSensitive, boolean exactMatch) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		return jso.findExact(fieldName, value, startIndex, anyMatch,
 				caseSensitive, exactMatch);
@@ -702,9 +655,8 @@ public class Store extends JsObject {
 	}-*/;
 
 	/**
-	 * Returns the string to group on for a given model instance. The default
-	 * implementation of this method returns the model's groupField, but this
-	 * can be overridden to group by an arbitrary string.
+	 * Returns the string to group on for a given model instance. The default implementation of this method returns the model's groupField, but this can be overridden to group by
+	 * an arbitrary string.
 	 * 
 	 * @param instance
 	 * @return
@@ -715,8 +667,7 @@ public class Store extends JsObject {
 	}-*/;
 
 	/**
-	 * Returns an array containing the result of applying grouping to the
-	 * records in this store. See groupField, groupDir and getGroupString.
+	 * Returns an array containing the result of applying grouping to the records in this store. See groupField, groupDir and getGroupString.
 	 * 
 	 * @param groupName
 	 * @return
@@ -756,8 +707,7 @@ public class Store extends JsObject {
 	 * @param groupers
 	 * @param direction
 	 */
-	public native void group(JsArray<JavaScriptObject> groupers,
-			String direction) /*-{
+	public native void group(JsArray<JavaScriptObject> groupers, String direction) /*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		jso.group(groupers, direction);
 	}-*/;
@@ -805,9 +755,7 @@ public class Store extends JsObject {
 	}-*/;
 
 	/**
-	 * True if the Store has already been destroyed. If this is true, the
-	 * reference to Store should be deleted as it will not function correctly
-	 * any more.
+	 * True if the Store has already been destroyed. If this is true, the reference to Store should be deleted as it will not function correctly any more.
 	 * 
 	 * @return
 	 */
@@ -845,8 +793,7 @@ public class Store extends JsObject {
 	}-*/;
 
 	/**
-	 * Calls the specified function for each of the BaseModels in the cache.
-	 * Returning false aborts and exits the iteration.
+	 * Calls the specified function for each of the BaseModels in the cache. Returning false aborts and exits the iteration.
 	 * 
 	 * @param callback
 	 */
@@ -868,9 +815,8 @@ public class Store extends JsObject {
 	}-*/;
 
 	/**
-	 * Returns the string to group on for a given model instance. The default
-	 * implementation of this method returns the model's groupField, but this
-	 * can be overridden to group by an arbitrary string.
+	 * Returns the string to group on for a given model instance. The default implementation of this method returns the model's groupField, but this can be overridden to group by
+	 * an arbitrary string.
 	 * 
 	 * @param handler
 	 * @return
@@ -885,11 +831,8 @@ public class Store extends JsObject {
 	}-*/;
 
 	/**
-	 * Returns the total number of DataModel instances that the ProxyConfig
-	 * indicates exist. This will usually differ from getCount when using paging
-	 * - getCount returns the number of records loaded into the Store at the
-	 * moment, getTotalCount returns the number of records that could be loaded
-	 * into the Store if the Store contained all data
+	 * Returns the total number of DataModel instances that the ProxyConfig indicates exist. This will usually differ from getCount when using paging - getCount returns the number
+	 * of records loaded into the Store at the moment, getTotalCount returns the number of records that could be loaded into the Store if the Store contained all data
 	 */
 	public native int getTotalCount()/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
@@ -1018,9 +961,7 @@ public class Store extends JsObject {
 	}
 
 	/**
-	 * Removes the given record from the Store, firing the 'remove' event for
-	 * each instance that is removed, plus a single 'datachanged' event after
-	 * removal.
+	 * Removes the given record from the Store, firing the 'remove' event for each instance that is removed, plus a single 'datachanged' event after removal.
 	 * 
 	 * @param value
 	 */
@@ -1029,9 +970,7 @@ public class Store extends JsObject {
 	}
 
 	/**
-	 * Removes the given record from the Store, firing the 'remove' event for
-	 * each instance that is removed, plus a single 'datachanged' event after
-	 * removal.
+	 * Removes the given record from the Store, firing the 'remove' event for each instance that is removed, plus a single 'datachanged' event after removal.
 	 * 
 	 * @param data
 	 */
@@ -1089,8 +1028,7 @@ public class Store extends JsObject {
 	 * @param data
 	 *            , Array of data to load
 	 * @param append
-	 *            , True to add the records to the existing records in the
-	 *            store, false to remove the old ones first
+	 *            , True to add the records to the existing records in the store, false to remove the old ones first
 	 */
 	public void loadData(List<? extends BaseModel> data, boolean append) {
 		JavaScriptObject[] storeData = new JavaScriptObject[data.size()];
@@ -1115,9 +1053,8 @@ public class Store extends JsObject {
 	}
 
 	/**
-	 * Loads a given 'page' of data by setting the start and limit values
-	 * appropriately. Internally this just causes a normal load operation,
-	 * passing in calculated 'start' and 'limit' params
+	 * Loads a given 'page' of data by setting the start and limit values appropriately. Internally this just causes a normal load operation, passing in calculated 'start' and
+	 * 'limit' params
 	 * 
 	 * @param page
 	 * @param options
@@ -1128,9 +1065,8 @@ public class Store extends JsObject {
 	}-*/;
 
 	/**
-	 * Loads a given 'page' of data by setting the start and limit values
-	 * appropriately. Internally this just causes a normal load operation,
-	 * passing in calculated 'start' and 'limit' params
+	 * Loads a given 'page' of data by setting the start and limit values appropriately. Internally this just causes a normal load operation, passing in calculated 'start' and
+	 * 'limit' params
 	 * 
 	 * @param page
 	 */
@@ -1308,8 +1244,7 @@ public class Store extends JsObject {
 				});
 	}-*/;
 
-	private native void create(String modelName, JavaScriptObject values,
-			ProxyConfig storeProxyConfig)/*-{
+	private native void create(String modelName, JavaScriptObject values, ProxyConfig storeProxyConfig)/*-{
 		var peer = storeProxyConfig.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		this.@com.ait.toolkit.core.client.JsObject::jsObj = new $wnd.Ext.data.Store(
 				{
@@ -1328,8 +1263,7 @@ public class Store extends JsObject {
 				});
 	}-*/;
 
-	private native void create(ProxyConfig storeProxyConfig,
-			JavaScriptObject fieldsValue)/*-{
+	private native void create(ProxyConfig storeProxyConfig, JavaScriptObject fieldsValue)/*-{
 		var peer = storeProxyConfig.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		this.@com.ait.toolkit.core.client.JsObject::jsObj = new $wnd.Ext.data.Store(
 				{
