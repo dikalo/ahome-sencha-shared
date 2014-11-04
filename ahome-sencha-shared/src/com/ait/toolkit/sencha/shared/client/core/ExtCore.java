@@ -35,9 +35,7 @@ public class ExtCore {
 	public static final String AIT_MAIN_EXT_JS_ID = "ait-js-id";
 
 	/**
-	 * URL to a blank file used by Ext when in secure mode for iframe src and
-	 * onReady src to prevent the IE insecure content warning (defaults to
-	 * javascript:false).
+	 * URL to a blank file used by Ext when in secure mode for iframe src and onReady src to prevent the IE insecure content warning (defaults to javascript:false).
 	 * 
 	 * @param url
 	 *            the url
@@ -47,9 +45,7 @@ public class ExtCore {
 	}-*/;
 
 	/**
-	 * he current version of IE (0 if the browser is not IE). This does not
-	 * account for the documentMode of the current page, which is factored into
-	 * isIE7, isIE8 and isIE9.
+	 * he current version of IE (0 if the browser is not IE). This does not account for the documentMode of the current page, which is factored into isIE7, isIE8 and isIE9.
 	 * 
 	 * @return
 	 */
@@ -58,19 +54,16 @@ public class ExtCore {
 	}-*/;
 
 	/**
-	 * Sets the default font-family to use for components that support a glyph
-	 * config.
+	 * Sets the default font-family to use for components that support a glyph config.
 	 */
 	public static native void setGlyphFontFamily(String value)/*-{
 		$wnd.Ext.setGlyphFontFamily(value);
 	}-*/;
 
 	/**
-	 * Indicates whether to use native browser parsing for JSON methods. This
-	 * option is ignored if the browser does not support native JSON methods.
+	 * Indicates whether to use native browser parsing for JSON methods. This option is ignored if the browser does not support native JSON methods.
 	 * <p>
-	 * Note: Native JSON methods will not work with objects that have functions.
-	 * Also, property names must be quoted, otherwise the data will not parse.
+	 * Note: Native JSON methods will not work with objects that have functions. Also, property names must be quoted, otherwise the data will not parse.
 	 * <p>
 	 * Defaults to: false*
 	 */
@@ -79,11 +72,9 @@ public class ExtCore {
 	}-*/;
 
 	/**
-	 * Indicates whether to use native browser parsing for JSON methods. This
-	 * option is ignored if the browser does not support native JSON methods.
+	 * Indicates whether to use native browser parsing for JSON methods. This option is ignored if the browser does not support native JSON methods.
 	 * <p>
-	 * Note: Native JSON methods will not work with objects that have functions.
-	 * Also, property names must be quoted, otherwise the data will not parse.
+	 * Note: Native JSON methods will not work with objects that have functions. Also, property names must be quoted, otherwise the data will not parse.
 	 * <p>
 	 * Defaults to: false*
 	 */
@@ -106,14 +97,12 @@ public class ExtCore {
 	}-*/;
 
 	/**
-	 * True to automatically uncache orphaned Ext.Elements periodically
-	 * (defaults to true).
+	 * True to automatically uncache orphaned Ext.Elements periodically (defaults to true).
 	 * 
 	 * @param enableGarbageCollector
 	 *            true to enable GC
 	 */
-	public static native void setEnableGarbageCollector(
-			boolean enableGarbageCollector)/*-{
+	public static native void setEnableGarbageCollector(boolean enableGarbageCollector)/*-{
 		$wnd.Ext.enableGarbageCollector = enableGarbageCollector;
 	}-*/;
 
@@ -127,15 +116,12 @@ public class ExtCore {
 	}-*/;
 
 	/**
-	 * True to automatically purge event listeners after uncaching an element
-	 * (defaults to false). Note: this only happens if enableGarbageCollector is
-	 * true.
+	 * True to automatically purge event listeners after uncaching an element (defaults to false). Note: this only happens if enableGarbageCollector is true.
 	 * 
 	 * @param enableListenerCollection
 	 *            true to enable listener collection
 	 */
-	public static native void setEnableListenerCollection(
-			boolean enableListenerCollection)/*-{
+	public static native void setEnableListenerCollection(boolean enableListenerCollection)/*-{
 		$wnd.Ext.enableListenerCollection = enableListenerCollection;
 	}-*/;
 
@@ -237,16 +223,14 @@ public class ExtCore {
 	}-*/;
 
 	/**
-	 * True if the detected browser uses the Gecko layout engine (e.g. Mozilla,
-	 * Firefox).
+	 * True if the detected browser uses the Gecko layout engine (e.g. Mozilla, Firefox).
 	 */
 	public static native boolean isGecko()/*-{
 		return $wnd.Ext.isGecko;
 	}-*/;
 
 	/**
-	 * True if the detected browser uses a Gecko 5.0+ layout engine (e.g.
-	 * Firefox 5.x).
+	 * True if the detected browser uses a Gecko 5.0+ layout engine (e.g. Firefox 5.x).
 	 */
 	public static native boolean isGecko10()/*-{
 		return $wnd.Ext.isGecko10;
@@ -439,8 +423,7 @@ public class ExtCore {
 	}-*/;
 
 	/**
-	 * By default, Ext intelligently decides whether floating elements should be
-	 * shimmed. If you are using flash, you may want to set this to true.
+	 * By default, Ext intelligently decides whether floating elements should be shimmed. If you are using flash, you may want to set this to true.
 	 * 
 	 * @param useShims
 	 *            true to use shims
@@ -475,9 +458,8 @@ public class ExtCore {
 	}-*/;
 
 	/**
-	 * Method to retrieve Element objects. Uses simple caching to consistently
-	 * return the same object. Automatically fixes if an object was recreated
-	 * with the same id via AJAX or DOM.
+	 * Method to retrieve Element objects. Uses simple caching to consistently return the same object. Automatically fixes if an object was recreated with the same id via AJAX or
+	 * DOM.
 	 * 
 	 * @param id
 	 *            element ID
@@ -490,9 +472,8 @@ public class ExtCore {
 	}-*/;
 
 	/**
-	 * Method to retrieve Element objects. Uses simple caching to consistently
-	 * return the same object. Automatically fixes if an object was recreated
-	 * with the same id via AJAX or DOM.
+	 * Method to retrieve Element objects. Uses simple caching to consistently return the same object. Automatically fixes if an object was recreated with the same id via AJAX or
+	 * DOM.
 	 * 
 	 * @param element
 	 *            the element
@@ -535,9 +516,7 @@ public class ExtCore {
 	}-*/;
 
 	/**
-	 * Attempts to destroy the objects by removing all event listeners, removing
-	 * them from the DOM (if applicable) and calling their destroy functions (if
-	 * available).
+	 * Attempts to destroy the objects by removing all event listeners, removing them from the DOM (if applicable) and calling their destroy functions (if available).
 	 * 
 	 * @param element
 	 *            the element to destroy
@@ -567,8 +546,7 @@ public class ExtCore {
 	}-*/;
 
 	/**
-	 * Returns the size of the browser scrollbars. This can differ depending on
-	 * operating system settings, such as the theme or font size.
+	 * Returns the size of the browser scrollbars. This can differ depending on operating system settings, such as the theme or font size.
 	 */
 	public static native Size getScrollbarSize()/*-{
 		var obj = $wnd.Ext.getScrollbarSize();
@@ -576,8 +554,7 @@ public class ExtCore {
 	}-*/;
 
 	/**
-	 * Returns the size of the browser scrollbars. This can differ depending on
-	 * operating system settings, such as the theme or font size.
+	 * Returns the size of the browser scrollbars. This can differ depending on operating system settings, such as the theme or font size.
 	 */
 	public static native Size getScrollbarSize(boolean force)/*-{
 		var obj = $wnd.Ext.getScrollbarSize(force);
@@ -596,9 +573,8 @@ public class ExtCore {
 	}-*/;
 
 	/**
-	 * Gets the globally shared flyweight ExtElement, with the passed node as
-	 * the active element. Do not store a reference to this element - the dom
-	 * node can be overwritten by other code.
+	 * Gets the globally shared flyweight ExtElement, with the passed node as the active element. Do not store a reference to this element - the dom node can be overwritten by
+	 * other code.
 	 * 
 	 * @param id
 	 *            the element ID
@@ -611,15 +587,13 @@ public class ExtCore {
 	}-*/;
 
 	/**
-	 * Gets the globally shared flyweight ExtElement, with the passed node as
-	 * the active element. Do not store a reference to this element - the dom
-	 * node can be overwritten by other code.
+	 * Gets the globally shared flyweight ExtElement, with the passed node as the active element. Do not store a reference to this element - the dom node can be overwritten by
+	 * other code.
 	 * 
 	 * @param id
 	 *            the element ID
 	 * @param named
-	 *            allows for creation of named reusable flyweights to prevent
-	 *            conflicts (e.g. internally Ext uses "_internal")
+	 *            allows for creation of named reusable flyweights to prevent conflicts (e.g. internally Ext uses "_internal")
 	 * @return the ExtElement
 	 */
 	public static native ExtElement fly(String id, String named) /*-{
@@ -629,9 +603,8 @@ public class ExtCore {
 	}-*/;
 
 	/**
-	 * Gets the globally shared flyweight ExtElement, with the passed node as
-	 * the active element. Do not store a reference to this element - the dom
-	 * node can be overwritten by other code.
+	 * Gets the globally shared flyweight ExtElement, with the passed node as the active element. Do not store a reference to this element - the dom node can be overwritten by
+	 * other code.
 	 * 
 	 * @param element
 	 *            the element
@@ -644,15 +617,13 @@ public class ExtCore {
 	}-*/;
 
 	/**
-	 * Gets the globally shared flyweight ExtElement, with the passed node as
-	 * the active element. Do not store a reference to this element - the dom
-	 * node can be overwritten by other code.
+	 * Gets the globally shared flyweight ExtElement, with the passed node as the active element. Do not store a reference to this element - the dom node can be overwritten by
+	 * other code.
 	 * 
 	 * @param element
 	 *            the element
 	 * @param named
-	 *            allows for creation of named reusable flyweights to prevent
-	 *            conflicts (e.g. internally Ext uses "_internal")
+	 *            allows for creation of named reusable flyweights to prevent conflicts (e.g. internally Ext uses "_internal")
 	 * @return the ExtElement
 	 */
 	public static native ExtElement fly(Element element, String named) /*-{
@@ -682,8 +653,7 @@ public class ExtCore {
 	}-*/;
 
 	/**
-	 * Fires when the document is ready (before onload and before images are
-	 * loaded). Can alternatively use the GWT entry point mechanism.
+	 * Fires when the document is ready (before onload and before images are loaded). Can alternatively use the GWT entry point mechanism.
 	 * 
 	 * @param cb
 	 *            callback to execute
@@ -695,8 +665,7 @@ public class ExtCore {
 	}-*/;
 
 	/**
-	 * Shorthand for the Ext.util.Observable.addListener method of the
-	 * globalEvents Observable instance.
+	 * Shorthand for the Ext.util.Observable.addListener method of the globalEvents Observable instance.
 	 * 
 	 * @param event
 	 * @param cb
@@ -708,8 +677,7 @@ public class ExtCore {
 	}-*/;
 
 	public static void defineModel(String name, Set<String> fields) {
-		JsArray<ModelFieldDefinition> fieldsDefinition = JsArray.createArray()
-				.cast();
+		JsArray<ModelFieldDefinition> fieldsDefinition = JsArray.createArray().cast();
 		for (String s : fields) {
 			fieldsDefinition.push(ModelFieldDefinition.create(s));
 		}
@@ -718,8 +686,7 @@ public class ExtCore {
 	}
 
 	/**
-	 * Copies all the properties of config to object if they don't already
-	 * exist.
+	 * Copies all the properties of config to object if they don't already exist.
 	 */
 	public static native void applyIf(JsObject src, JsObject target)/*-{
 		var s = src.@com.ait.toolkit.core.client.JsObject::getJsObj()();
@@ -735,9 +702,8 @@ public class ExtCore {
 	}-*/;
 
 	/**
-	 * Clone simple variables including array, {}-like objects, DOM nodes and
-	 * Date without keeping the old reference. A reference for the object itself
-	 * is returned if it's not a direct decendant of Object.
+	 * Clone simple variables including array, {}-like objects, DOM nodes and Date without keeping the old reference. A reference for the object itself is returned if it's not a
+	 * direct decendant of Object.
 	 * 
 	 * @param el
 	 * @return
@@ -753,8 +719,7 @@ public class ExtCore {
 	}-*/;
 
 	/**
-	 * Creates a CompositeElement for child nodes based on the passed CSS
-	 * selector (the selector should not contain an id).
+	 * Creates a CompositeElement for child nodes based on the passed CSS selector (the selector should not contain an id).
 	 * 
 	 * @param selector
 	 *            the CSS selector
@@ -767,9 +732,7 @@ public class ExtCore {
 	}-*/;
 
 	/**
-	 * Get the version number of the supplied package name; will return the last
-	 * registered version (last Ext.setVersion call) if there's no package name
-	 * given.
+	 * Get the version number of the supplied package name; will return the last registered version (last Ext.setVersion call) if there's no package name given.
 	 */
 	public static native Version getVersion()/*-{
 		var obj = $wnd.Ext.getVersion();
@@ -777,9 +740,7 @@ public class ExtCore {
 	}-*/;
 
 	/**
-	 * Get the version number of the supplied package name; will return the last
-	 * registered version (last Ext.setVersion call) if there's no package name
-	 * given.
+	 * Get the version number of the supplied package name; will return the last registered version (last Ext.setVersion call) if there's no package name given.
 	 */
 	public static native Version getVersion(String packageName)/*-{
 		var obj = $wnd.Ext.getVersion(packageName);
@@ -830,8 +791,7 @@ public class ExtCore {
 		log(obj.getJsObj());
 	}
 
-	private static native void createModel(String name,
-			JsArray<ModelFieldDefinition> f)/*-{
+	private static native void createModel(String name, JsArray<ModelFieldDefinition> f)/*-{
 
 		if ($wnd.Ext.versions.touch) {
 			$wnd.Ext.define(name, {
@@ -846,6 +806,97 @@ public class ExtCore {
 				fields : f
 			});
 		}
+	}-*/;
+
+	public static native void createBoxPreview(JavaScriptObject parent, JavaScriptObject el)/*-{
+
+		var parentSize = parent.getSize();
+		var cloneWinMaxHeight = parentSize.height;
+		var cloneWinMaxWidth = parentSize.width;
+		var top = 0;
+		var left = 0;
+
+		var win = parent.createChild({
+			tag : 'div'
+		});
+		win.setStyle('position', 'absolute');
+
+		var top = 0;
+		var left = 0;
+
+		var b = el.dom.cloneNode(true);
+		b.removeAttribute("id");
+		var f = $wnd.Ext.get(b);
+
+		var a = el.getSize();
+		//$wnd.console.log(a);
+		var d = cloneWinMaxWidth / a.width;
+
+		left = ((a.width * d) / 2) - (a.width / 2);
+		top = ((a.height * d) / 2) - (a.height / 2);
+		d = Math.min(d, 1);
+		f
+				.setStyle("-webkit-transform", $wnd.Ext.String.format(
+						"scale({0})", d));
+		f.setStyle("-moz-transform", $wnd.Ext.String.format("scale({0})", d));
+		f.setStyle("-o-transform", $wnd.Ext.String.format("scale({0})", d));
+		f.setStyle("transform", $wnd.Ext.String.format("scale({0})", d));
+		f.setStyle("msTransform", $wnd.Ext.String.format("scale({0})", d));
+		f.setLeftTop(left, top);
+		f.removeCls("x-hide-offsets");
+		win.appendChild(f);
+		f.show();
+	}-*/;
+
+	public static native String getScreenContent(JavaScriptObject parent, JavaScriptObject el)/*-{
+
+		var parentSize = parent.getSize();
+		var cloneWinMaxHeight = parentSize.height;
+		var cloneWinMaxWidth = parentSize.width;
+		var top = 0;
+		var left = 0;
+
+		var win = parent.createChild({
+			tag : 'div'
+		});
+		win.setStyle('position', 'absolute');
+
+		var top = 0;
+		var left = 0;
+
+		var b = el.dom.cloneNode(true);
+		b.removeAttribute("id");
+		var f = $wnd.Ext.get(b);
+
+		var a = el.getSize();
+		//$wnd.console.log(a);
+		var d = cloneWinMaxWidth / a.width;
+
+		left = ((a.width * d) / 2) - (a.width / 2);
+		top = ((a.height * d) / 2) - (a.height / 2);
+		d = Math.min(d, 1);
+		f
+				.setStyle("-webkit-transform", $wnd.Ext.String.format(
+						"scale({0})", d));
+		f.setStyle("-moz-transform", $wnd.Ext.String.format("scale({0})", d));
+		f.setStyle("-o-transform", $wnd.Ext.String.format("scale({0})", d));
+		f.setStyle("transform", $wnd.Ext.String.format("scale({0})", d));
+		f.setStyle("msTransform", $wnd.Ext.String.format("scale({0})", d));
+		f.setLeftTop(left, top);
+		f.removeCls("x-hide-offsets");
+
+		win.appendChild(f);
+		f.show();
+		var body = f.dom.outerHTML;
+		f.remove();
+		//$wnd.console.log("innerHTML : " + s);
+
+		var head = "<div style='position:absolute;left:" + left + "px;top:"
+				+ top + "px;'>";
+		var tail = "</div>";
+		var toReturn = (head + body + tail);
+		//$wnd.console.log(toReturn);
+		return toReturn;
 	}-*/;
 
 }
