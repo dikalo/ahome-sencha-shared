@@ -22,6 +22,8 @@ import com.ait.toolkit.data.client.TableItem;
 import com.ait.toolkit.sencha.shared.client.data.proxy.ProxyConfig;
 import com.ait.toolkit.sencha.shared.client.util.SorterConfig;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArray;
+import com.google.gwt.core.client.JsArrayString;
 
 /**
  * This class is used as a container for a series of nodes. The nodes themselves maintain the relationship between parent/child. The tree itself acts as a manager. It gives
@@ -37,19 +39,39 @@ public class TreeStore extends Store {
 	}
 
 	public TreeStore(List<? extends TableItem> data) {
+		this(data, false, "text");
+	}
+
+	public TreeStore(List<? extends TableItem> data, String... fields) {
+		this(data, false, fields);
+	}
+
+	public TreeStore(List<? extends TableItem> data, boolean expanded, String... fields) {
 		JavaScriptObject[] storeData = new JavaScriptObject[data.size()];
 		for (int i = 0; i < data.size(); i++) {
 			storeData[i] = data.get(i).getJsObj();
 		}
-		create(JsoHelper.arrayConvert(storeData), false);
+		JsArrayString fs = JsArray.createArray().cast();
+		for (String s : fields) {
+			fs.push(s);
+		}
+		create(JsoHelper.arrayConvert(storeData), fs, expanded);
 	}
 
 	public TreeStore(List<? extends TableItem> data, SorterConfig... sorters) {
+		this(data, false, sorters);
+	}
+
+	public TreeStore(List<? extends TableItem> data, List<String> fields, SorterConfig... sorters) {
 		JavaScriptObject[] storeData = new JavaScriptObject[data.size()];
 		for (int i = 0; i < data.size(); i++) {
 			storeData[i] = data.get(i).getJsObj();
 		}
-		create(JsoHelper.arrayConvert(storeData), false, JsoHelper.arrayConvert(sorters));
+		JsArrayString fs = JsArrayString.createArray().cast();
+		for (String s : fields) {
+			fs.push(s);
+		}
+		create(JsoHelper.arrayConvert(storeData), fs, false, JsoHelper.arrayConvert(sorters));
 	}
 
 	public TreeStore(List<? extends TableItem> data, boolean expanded) {
@@ -65,23 +87,13 @@ public class TreeStore extends Store {
 		for (int i = 0; i < data.size(); i++) {
 			storeData[i] = data.get(i).getJsObj();
 		}
-		create(JsoHelper.arrayConvert(storeData), expanded, JsoHelper.arrayConvert(sorters));
-	}
-
-	public TreeStore(ProxyConfig proxy, String root) {
-		create(proxy, root, false);
-	}
-
-	public TreeStore(ProxyConfig proxy, String root, SorterConfig... sorterConfigs) {
-		create(proxy, root, false, JsoHelper.arrayConvert(sorterConfigs));
+		JsArrayString fields = JsArrayString.createArray().cast();
+		fields.push("text");
+		create(JsoHelper.arrayConvert(storeData), fields, expanded, JsoHelper.arrayConvert(sorters));
 	}
 
 	public TreeStore(ProxyConfig proxy, TableItem root) {
 		create(proxy, root);
-	}
-
-	public TreeStore(ProxyConfig proxy, String root, boolean expanded, SorterConfig... sorterConfigs) {
-		create(proxy, root, expanded, JsoHelper.arrayConvert(sorterConfigs));
 	}
 
 	public TreeStore(JavaScriptObject obj) {
@@ -107,9 +119,10 @@ public class TreeStore extends Store {
 
 	}-*/;
 
-	private native void create(JavaScriptObject values, boolean isExpanded, JavaScriptObject sortersConfig)/*-{
+	private native void create(JavaScriptObject values, JavaScriptObject fs, boolean isExpanded, JavaScriptObject sortersConfig)/*-{
 		this.@com.ait.toolkit.core.client.JsObject::jsObj = new $wnd.Ext.data.TreeStore(
 				{
+					fields : fs,
 					root : {
 						expanded : isExpanded,
 						children : values,
@@ -117,35 +130,6 @@ public class TreeStore extends Store {
 					}
 				});
 
-	}-*/;
-
-	private native void create(ProxyConfig storeProxyConfig, String rootText, boolean rootExpanded)/*-{
-		var peer = storeProxyConfig.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		this.@com.ait.toolkit.core.client.JsObject::jsObj = new $wnd.Ext.data.TreeStore(
-				{
-					proxy : peer,
-					root : {
-						text : rootText,
-						expanded : rootExpanded
-					},
-					sorters : [ {
-						property : 'text',
-						direction : 'ASC' //for descending change to 'DESC'
-					} ]
-				});
-	}-*/;
-
-	private native void create(ProxyConfig storeProxyConfig, String rootText, boolean rootExpanded, JavaScriptObject storeSorters)/*-{
-		var peer = storeProxyConfig.@com.ait.toolkit.core.client.JsObject::getJsObj()();
-		this.@com.ait.toolkit.core.client.JsObject::jsObj = new $wnd.Ext.data.TreeStore(
-				{
-					proxy : peer,
-					root : {
-						text : rootText,
-						expanded : rootExpanded
-					},
-					sorters : storeSorters
-				});
 	}-*/;
 
 	private native void create(ProxyConfig storeProxyConfig, TableItem root)/*-{
@@ -172,6 +156,18 @@ public class TreeStore extends Store {
 	private native void setRootNode(JavaScriptObject node)/*-{
 		var jso = this.@com.ait.toolkit.core.client.JsObject::jsObj;
 		jso.setRootNode(node);
+	}-*/;
+
+	private native void create(JavaScriptObject values, JavaScriptObject fs, boolean isExpanded)/*-{
+		this.@com.ait.toolkit.core.client.JsObject::jsObj = new $wnd.Ext.data.TreeStore(
+				{
+					fields : fs,
+					root : {
+						expanded : isExpanded,
+						children : values
+					}
+				});
+
 	}-*/;
 
 }
