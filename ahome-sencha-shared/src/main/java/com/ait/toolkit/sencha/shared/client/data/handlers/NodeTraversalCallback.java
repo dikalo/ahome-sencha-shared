@@ -17,6 +17,6 @@ package com.ait.toolkit.sencha.shared.client.data.handlers;
 
 import com.ait.toolkit.sencha.shared.client.data.NodeInterface;
 
-public interface BubbleHandler {
+public interface NodeTraversalCallback {
     public void onNodeTraverse(NodeInterface node);
 }
