@@ -659,6 +659,19 @@ public class ExtElement extends DomElement {
     }-*/;
 
     /**
+     * Creates a child element for this element using the given string.
+     * 
+     * @param childContent,html string representation of the child element.
+     * 
+     * @return this
+     */
+    public native ExtElement createChild( String childContent )/*-{
+		var el = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		el.createChild(childContent);
+		return this;
+    }-*/;
+
+    /**
      * Tries to blur the element. Any exceptions are caught and ignored.
      * 
      * @return this
