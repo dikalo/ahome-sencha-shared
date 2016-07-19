@@ -18,6 +18,7 @@ package com.ait.toolkit.sencha.shared.client.dom;
 import java.util.List;
 
 import com.ait.toolkit.core.client.Function;
+import com.ait.toolkit.core.client.JsObject;
 import com.ait.toolkit.sencha.shared.client.core.Box;
 import com.ait.toolkit.sencha.shared.client.core.Side;
 import com.ait.toolkit.sencha.shared.client.core.Size;
@@ -668,6 +669,20 @@ public class ExtElement extends DomElement {
     public native ExtElement createChild( String childContent )/*-{
 		var el = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
 		el.createChild(childContent);
+		return this;
+    }-*/;
+
+    public native ExtElement set( JsObject attr )/*-{
+		var el = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		el.set(attr.@com.ait.toolkit.core.client.JsObject::getJsObj()());
+		return this
+    }-*/;
+
+    public native ExtElement setInputValue( String newValue )/*-{
+		var el = this.@com.ait.toolkit.core.client.JsObject::getJsObj()();
+		el.set({
+			value : newValue
+		});
 		return this;
     }-*/;
 
